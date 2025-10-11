@@ -1,0 +1,278 @@
+Generative AI
+	Focuses on generating new content as Images, Text, Audio, Video, Code, 3D objects, Synthetic data
+	
+Generative Models
+	Data Objects, Deep Neural Network, Tasks
+	
+Large Datasets, Computational Power, Innovative DL Models
+
+Generative AI Use Cases
+	Content generation, questions/answers, Virtual assistance, Content personalization, Language style transfer, Story telling,
+	translation, Code generation / auto-completion
+	
+	
+LLMs (Large Language Models)
+	GPT-4, LLaMA, Falcon. Dolly is for Databricks
+	
+	Training process over datasets
+	
+	Encoding-Transforming-Decoding
+	
+	
+Are there Generative AI Tools for cars mechanic?
+What LLMs could be apropiated for creating an cars mehcanic agent? 
+Could be a Question Answering?
+
+LLMs Business Cases
+	Customer Engagement, Customer segmentation, Feedback analysis, virtual assistants 
+	
+	Content creation
+	
+	Process automation and efficence, support aumetation, automated question/answering, sentiment analysis, priotitization
+
+	Code generation
+
+
+LLM Applications
+	Open-Source (commercial and non-commercial use), Proprietary Models
+	
+LLM model decision criteria
+	Privacy, Quality, Cost, Latency
+	
+Pre-Trained Models
+	initially training a model on a large corpus of training data
+	
+Fine-tuning
+	training a pre-trained model on a specific task or dataset to adapt it for a particular application or domain
+
+
+Mixing LLM Flawors in a Workflow
+
+
+Databricks AI
+	Databricks Data Intelligence Platform
+		
+		Databricks AI		--> Create, tune and serve custom LLMs
+		Delta Live Tables	-->	Automated quality
+		Workflows			-->	Job cost optimized based on past runs
+		Databricks SQL		-->	Text - to - SQL	
+		
+			Use Generative AI to understand the semantics of your data
+			Data Intelligence Engine
+		
+		Unity Catalog
+			Securely get insights in natural language
+			
+			Datasets
+				Vector Search
+				Feature Serving
+				Data collection and preparation
+				
+			Models
+				Curated AI Models
+				LLM Training
+				MLFlow Evaluation
+				Use existing model or build your own
+				
+			Applications
+				MLFlow AI Gateway
+				Model Serving optimized for LLMs
+				Lakehouse Monitoring
+				Model Serving and Monitoring
+			
+		Delta Lake
+			Data layout is automatically optimized based on usage patterns
+
+
+	Databricks AI
+		Gen AI
+			Custom Models
+			Model Serving
+			RAG
+			
+		End to end AI
+			MLOps (MLFlow)
+			AutoML
+			Monitoring
+			Governance
+	
+Databricks + MosaicML
+	Rapid democratization of model capabilities
+	Making generative AI Models work for entreprises
+	Unifying the AI and data stack
+	
+	
+AI Adoption Preparation
+	Act with urgency
+	Understand AI fundamentals
+	Develop a strategy
+	Identify value use cases
+	Invest in innovation
+
+
+Strategic Roadmap for AI Adoption
+	Define Gen AI Startegy
+	Business Use Cases
+	Design Architecture
+	Operations and Monitoring
+	People Adoption
+
+
+Potential Risks and Challenges
+	Legal issues
+	Ethical issues
+	Social/Envirionmental issues
+	
+	
+Legal
+	Data Privacy
+	
+Security
+	What if trainig data and prompt includes sensitive or confidential data?
+	
+Prompt Injection
+
+Intellectuall Property Protection
+
+
+
+Ethical Considerations
+	Fairness and Bias in Data
+	
+	Model Hallucination
+		Intrinsic (contradiction)
+		Extrinsic (fake information)
+		
+	Address Ethical Issues
+	
+	Auditing Generative AI Models
+
+
+****************************************************************************************************************************
+
+
+1. Fundamentos de IA Generativa
+	Definición: IA enfocada en crear nuevos contenidos: texto, imágenes, audio, video, código, objetos 3D, datos sintéticos.
+
+	Modelos generativos: Usan redes neuronales profundas (Deep Neural Networks) y técnicas avanzadas de Deep Learning.
+
+	Requisitos clave:
+
+		Grandes volúmenes de datos (entrenamiento masivo).
+
+		Alta potencia computacional (GPUs, TPUs, clusters).
+
+		Modelos innovadores (Transformers, Mixture-of-Experts).
+
+		Casos de uso: generación de contenido, asistentes virtuales, personalización, traducción, storytelling, generación de código, question answering (QA).
+
+2. LLMs (Large Language Models)
+		Ejemplos: GPT-4, LLaMA, Falcon, Dolly (Databricks), DBRX (Databricks, Mixture-of-Experts).
+
+		Proceso de funcionamiento:
+
+			Encoding: convertir texto en representaciones numéricas (embeddings).
+
+			Transforming: procesar y razonar sobre esas representaciones.
+
+			Decoding: generar la respuesta en lenguaje natural.
+
+		Pre-entrenamiento: entrenamiento inicial en un gran corpus de datos.
+
+		Fine-tuning: ajuste del modelo preentrenado para un dominio/tarea específica.
+
+		Aplicaciones empresariales:
+
+			Engagement con clientes.
+
+			Segmentación y análisis de feedback.
+
+			Automatización de procesos y soporte.
+
+			Análisis de sentimiento y priorización.
+
+			Generación de contenido y código.
+
+3. Modelos Open Source vs Propietarios
+		Open Source: reutilizables y modificables, con opciones comerciales y no comerciales (ej. LLaMA, Mistral).
+
+		Propietarios: restringidos, normalmente vía API (ej. GPT-4, Claude).
+
+		Criterios de selección:
+
+			Privacidad.
+
+			Calidad.
+
+			Costo.
+
+			Latencia.
+
+4. Herramientas de Databricks para GenAI
+		Unity Catalog: Gobernanza y control de acceso seguro a datos y modelos.
+
+		Delta Live Tables: Ingesta y procesamiento de datos en streaming con control de calidad automático.
+
+		Delta Lake: Optimización de datos basada en patrones de uso.
+
+		Databricks SQL: Consultas en lenguaje natural convertidas a SQL.
+
+		Vector Search: Búsqueda semántica y soporte para RAG (Retrieval-Augmented Generation).
+
+		MLflow: Seguimiento de experimentos, evaluación y despliegue de modelos.
+
+		AI Playground: Prototipado sin código.
+
+		Agent Framework (Mosaic AI): Construcción de agentes RAG y multi-agente.
+
+		DBRX: LLM open source optimizado para empresas.
+
+		MosaicML: Fine-tuning y entrenamiento eficiente de modelos.
+
+5. Flujo de Adopción de IA en Empresas
+		Definir estrategia y casos de uso.
+
+		Diseñar la arquitectura y la infraestructura.
+
+		Construir prototipo (POC).
+
+		Evaluar y mejorar con iteraciones.
+
+		Desplegar en producción.
+
+		Monitorear y gobernar (MLOps, MLflow, Lakehouse Monitoring).
+
+6. Riesgos y Desafíos
+		Legales: protección de datos, propiedad intelectual.
+
+		Seguridad: datos sensibles en entrenamiento, prompt injection.
+
+		Éticos:
+
+			Sesgo en datos y resultados.
+
+			Alucinaciones (intrínsecas: contradicciones, extrínsecas: datos falsos).
+
+		Sociales/ambientales: impacto laboral, consumo energético.
+
+		Mitigaciones: auditoría, validación humana, filtrado de datos.
+
+7. Casos Especiales – Ejemplo Agente de Mecánica Automotriz
+		Posibles funciones:
+
+			Responder preguntas técnicas sobre reparaciones (QA).
+
+			Recomendar procedimientos de diagnóstico.
+
+			Traducir manuales técnicos.
+
+		Limitaciones:
+
+			No ejecuta acciones físicas (reparar o reemplazar piezas).
+
+			Depende de datos técnicos y manuales bien estructurados.
+
+
+Quiero un mini cuestionario interactivo estilo Databricks con preguntas tipo examen para practicar este contenido
+
+preguntas más (nivel un poco más avanzado, con escenarios de negocio y herramientas Databricks) para seguir practicando como si fuera un examen oficial

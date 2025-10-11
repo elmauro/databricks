@@ -1,0 +1,259 @@
+Generative AI Application Evaluation and Governance
+
+Why Evaluating Gen AI Applications
+	System Behaving as expected
+	Users happy with the results
+	LLM solution efective
+	bias or other ethical concern
+	costs
+	The AI system working
+	Performance
+	
+	AI System
+		several components (Example RAG System)
+		
+	Evaluating the system and components
+		How do we simplify evaluation
+			We need to evaluate the system as a whole
+			We need to evaluate the individual components of that system
+			
+		* Unit testing
+		* Integration testing
+		
+	Evaluating Data
+		Contextual Data
+			Quality Controls
+			Monitoring changes in data statistics
+			Bias/ethics
+		
+		LLM Trainig
+			Quality training data
+			published evaluations benchmarks
+			Bias/ethics
+		
+		Input/Output
+			Collect and review
+			Monitoring changes in data statistics
+			Monitor user feedback
+			Bias/ethics
+			
+	Issue: Data Legality
+		Many data sets have licenses that clarify how the data ca be used
+			Who owns the data
+			Is your application for commercial use?
+			In what countries/states will your system be deployed?
+			Will your system generate profit?
+			
+	Issue: Harmful User Behavior
+		LLMs are intelligent and they can do things you didn't intend
+			Users can input prompts intented to override the system's intended use
+			This prompt injection be used to extract private information, generate harmful or incorrect responses
+			
+	Issue: Bias/Ethical Use
+		LLMs learn the data that they are trained on
+			LLMs can promote ideas that were present in the data they were trained on
+			Can result in unintended bias in responses
+
+	So What do we do to mitigate these issues?
+		Truth
+			Is harder to measure as there isn't a single true/correct answer
+		
+		Quality
+			Is har to measure and quantify
+			
+		Bias
+			In trainig data and responses for GenAI is hard to mitigate
+		
+		Security
+			GenAI produces nearly arbitrary text, images or audio as outputs.
+		
+	A Systematic Approach to GenAI Evaluation
+		We want to evaluate the system and its components
+			Mitigate data risks with data licensing and prompt safety and guardrails
+			Evaluate LLM quality
+			Secure the system
+			Evaluate system quality
+			
+
+		Prompt Safety and Guardrails
+			To mitigating prompt injection risks
+			
+			Responses controlled by providing addtionl guidance to LLMs called guardrails
+			
+
+Exploring Licensing of Datasets
+	Exploring databricks marketplace
+	Access to a dataset
+	Review license information
+	Ingest Data
+	
+Prompts and Guardrails basics
+	
+	
+	
+Securing and Governing GenAI Applications
+	Data scientists haven't done security
+	Security teams are new to AI
+	ML engineers are used to work wirh simpler models architectures
+	Prodyction introduces new real-time security chanllenges
+	
+	
+	Securing AI Systems is the securing of AI Systems components
+		Input query
+		Embedding model
+		Document data
+		Vector database
+		Generation model
+		Output query
+		Generated data and metadata
+		
+	Data and AI Security Framework (DASF)
+	Organizing the AI Security problem with a component-based framework
+		Development proccess
+			Based on industry workshops
+			Identification 12 AI System components and 55 associated risks
+			Applicable approaches to mitigate risks across all AI-related roles
+			
+	Six of the twelve components for you to focus on
+		Catalog
+			Governance
+			Access control, lineage, auditing, discovery
+			Data quality and reliability
+			
+		Algorithm
+			ML vs MLLs
+			
+		Evaluation
+		
+		Model Mgmt
+		
+		Operations
+			MLOps 
+			MLLOps
+			
+		Platform
+		
+	Databricks as Security
+		Mosaic AI
+		Delta Live Tables
+		Workflows
+		Databricks SQL
+		
+		Databricks IQ
+		
+		Unity Catalog
+		
+		Delta Lake Uniform
+		
+		
+	Key Security Tooling
+		Unity Catalog
+		Mosaic AI
+		
+
+Implementing AI Guardrails
+	Llama Guard
+			
+			
+Gen AI Evaluation Techniques
+
+	Evaluating LLMs
+		AI System
+			What: 	The entire system
+			How:	Cost vs Value. User feedback security
+
+		LLMs
+			What:	LLM components of the system
+			How:	Benchmarking General metrics. Task metrics
+			
+	LLMs
+		Requires massive amounts of data and substantial computational resources (GPUs, TPUs)
+		Evaluated using language specific metrics (BLEU, ROUGE, perplexity), human judges, or LLM-as-a-judge
+		Especially large models seen as "black boxes" with limited interpretability
+		
+	Base Foundation Model metrics: Loss
+		Loss measure the difference between predictions and the true
+		Measure loss when training LLms, predict the next token
+		Issues:
+			hallucinations
+			can't compute conversation accuracy
+			
+		Perplexity
+			Is the model surprised that it was corrected?
+				Low perplexity = high confidence
+				Hight perplexity = low confidence
+			
+		Toxicity
+			How harmful is the out of the model
+				Offensive or inappropiate language
+				Low toxicity = low harm
+				Uses a pre-trained hate speech classification model
+				
+	LLM Evaluation Metrics: Task-specific
+		Translation: BLEU
+		Summarization: ROUGE
+		
+		BLEU: compares translated output to a references, comparing n-gram similarities between the output and reference
+		ROUGE: compares summarized output to a references, comparing n-gram similarities between the output and reference
+		
+	Benchmarking; Types of Data
+		Comparing models against standard evaluation data sets (generic or curate your own)
+		
+		Domain-specific Reference Dataset for Databricks Documentation Translation
+		
+		If you don't have reference data set or APIs or metrics
+			Ask an LLM yo do the evaluation for you
+			Apply the LLM evaluation to automatically evaluate new responses
+			
+			LLM-as-aJudge
+				MLFlow
+				
+Demo: Benchmark Evaluation
+
+Demo: LLM-as-a-judge	
+
+
+End to End App Evaluation
+	Cost metrics
+		Resources
+		Time
+		
+	Performance
+		Direct value
+		Indirect value
+		
+	Custom metrics for your own use case
+	
+	
+	Custom metrics
+		latency
+		total cost
+		product demand increase
+		customer satisfaction
+		useful for individual components too
+		
+	MLFlow
+	
+	Offline vs Online Evaluation
+		Offline
+			Curate a benchmark dataset
+			Use task specific evaluation metrics
+			Evaluate results using reference data or LLM-as-judge
+			
+		Online
+			Deploy the application
+			Collect real user behavior data
+			Evaluate results using how well the users respond to the LLM system
+			
+	Ongoing Evaluation of Components
+		Monitor the systems on an ongoing basis
+		Databricks provides the Lakehouse Monitoring solution
+		
+
+Quiero un resumen es español
+Quiero que el resumen incluya definiciones del curso de databricks en un lenguaje común y fácil de entender
+Quiero que contenga ejemplos simples enfocados en el curso y enfocado en la certificación de databricks
+Quiero un resumen actualizado y con definiciones tomadas de los materiales de Databricks – Generative AI Application Evaluation and Governance
+Quiero el resumen con un formato más amigable que me permita estudiar y aprender de forma más sencilla
+Me gustaría que el resumen resultado sea lo más completo posible con definiciones de databricks y ejemplos 
+para poder aprender mejor para la certificación.

@@ -1,0 +1,254 @@
+LLMs
+	Modelos masivos de lenguaje
+	
+	Modelos
+		Open Source
+			Cuando necesitas privacidad, personalización o control total
+		
+		Propietarios
+			Cuando priorizas calidad y velocidad de implementación
+			
+Databricks
+	Ecosistema unificado
+	
+	Mosaic AI
+		Es el Kit completo para GenAI
+		
+		Foundation Model APIs 
+			Modelos base que sirven para crear soluciones
+		
+		Model Serving 
+			Para exponer modelos como APIs ya sean propios, externos o Foundation
+		
+		Vector Search 
+			Es una base de datos vectorial que permite Busqueda semántica con embeddings vectoriales
+			
+			Se conecta con Mosaic AI Model Serving para embeddings. ignifica que Vector Search no genera los embeddings por sí mismo,
+			sino que llama (o se conecta) al servicio de modelos (Model Serving) que los genera automáticamente.
+			
+			Sincronización automática con Delta Tables. Significa que Mosaic AI Vector Search puede mantener su índice vectorial actualizado automáticamente
+			
+			Busqueda con filtros de metadata. Es una búsqueda semántica (por similitud de embeddings) combinada con condiciones exactas sobre los metadatos.
+		
+		Agent Framework
+			
+			Construcción de Agentes inteligentes, RAG, multi Agente, autónomos
+			
+			LLM Central
+			
+			Tools (Herramientas para búsqueda, APIs, funciones custom)
+			
+			Memory
+			
+			Planning
+		
+		AI Playground
+		
+			Entorno visual y sin código para hacer prototipos de prompts, probar modelos LLM y experimentar con Agentes o cadenas RAG
+			
+			Se pueden ajustar parámetros (temperatura) y guardar prompts para exportar a MLFlow a aplicaciones RAG
+
+DBRX
+	LLM Open Source Empresarial (Mixture of Experts)
+	
+	Tiene dos versiones
+	
+	DBRX Base
+		Modelo General preentrenado
+			Se usa para fine-tuning personalizado y cuando se quiere adaptarlo a tu dominio
+		
+	
+	DBRX Instruct
+		Fine-tuned para instrucciones y chat
+			Listo para usar y generalmente para Chatbots, Q&A y asistentes
+		
+		
+Databricks Data Inteligence Platform
+	
+	Mosaic AI (Ya lo vimos)
+	
+	Datasets
+		Vector Search 
+			Busqueda Semántica
+		
+		Feature Serving (Sirve features calculados - stributos estructurados) en tiempo real a modelos y agentes
+		
+			Los datos se almacenan en delta tables. Hay una sincronización automática con Tablas online (Feature Serving)
+			Esas tablas online se puden acceder desde el endpoint creado con Model Serving
+		
+		Delta Live Tables (ETLs) para alimentar Vector Search y Feature Serving
+			Herramienta de procesamiento, orquestación y aseguramiento de calidad automática en Databricks.
+			
+			No es almacenamiento. Es una herramienta de procesamiento y automatización de pipelines sobre Delta Lake.
+		
+	Models
+		Curated Models (Modelos preentrenados y listos para usar) algunos pueden ser Foundation Models			
+		
+		LLM Training (entrenar/fine-tuning). 
+			Proceso de entrenar o ajustar (fine-tuning) un modelo LLM usando datos propios para adaptarlo a un dominio específico
+		
+		MLFlow Evaluation. 
+			Módulo que permite evaluar, comparar y validar modelos
+			
+			Metricas
+				Faithfulness	¿Respuesta fiel al contexto?		Evita alucinaciones
+				Relevance		¿Respuesta útil/precisa?			"Responde lo preguntado"
+				Latency			Tiempo de respuesta					< 2 segundos para chatbot
+				Cost			Costo por token						$0.003/query
+				ROUGE/BLEU		Métricas lingüísticas				Resumen o traducción
+				Perplexity		Confianza del modelo				Menor = mejor
+				
+		MLFlow
+			Plataforma para gestión completa del ciclo de vida de modelos
+			
+			Trackear experimentos
+			Evaluar modelos (MLflow Evaluation ⬆️)
+			Desplegar en producción
+			Versionar modelos
+		
+		Model Serving
+			Para exponer modelos como APIs ya sean propios, externos o Foundation
+			
+		
+		AI Playground		
+			Enrono visual y sin código para hacer prototipos de prompts, probar modelos LLM y experimentar con Agentes o cadenas RAG
+			
+			Se pueden ajustar parámetros (temperatura) y guardar prompts para exportar a MLFlow a aplicaciones RAG
+		
+		
+		Mosaic AI Agent Framework
+			Framework para construir agentes
+			
+			Crear sistemas RAG
+			Construir agentes autónomos
+			Multi-agente (varios agentes colaborando)
+			
+		
+	Applications
+	
+		MLFlow AI Gateway
+			Acceso unificado a modelos Internos y Externos a través de un proxy
+		
+		Model Serving
+			Para exponer modelos como APIs ya sean propios, externos o Foundation			
+		
+		Lakehouse Monitoring
+			Para observabilidad
+	
+	
+	Unity Catalog
+		Sistema unificado de gobernanza de datos, modelos y activos de IA dentro de Databricks.
+	
+		Control de Acceso (ACLs)
+			Access Control Lists que definen quién puede hacer qué dentro de Databricks
+		
+		Lineage
+			Trazabilidad. Capacidad de rastrear el origen, flujo y uso de los datos y modelos
+			
+		Auditoría
+		
+		Discovery
+			Busqueda de assets
+			
+	
+	Delta Lake
+		
+		Formato de almacenamiento optimizado y transaccional. También puede guardar datos no estructurados como PDF, Json, Embeddings, 
+		features, Inference Logs (inputs/outputs de modelos)
+		
+		Los datos incluso los embeddings se almacenan en delta tables
+		
+		Almacenamiento Optimizado
+			formato Parquet (columnar, comprimido)
+		
+		ACID Transactions
+		
+		Time Travel 
+			Comparar performance de diferentes versiones de datos
+			
+			
+	Riesgos Legales
+	
+		Privacidad de Datos
+			El modelo puede exponer datos sensibles
+			
+			Solución:
+
+			Usar Unity Catalog para control de acceso
+			Anonimizar datos de entrenamiento
+			Auditar outputs
+			
+		Propiedad Intelectual
+			¿Quién es dueño del contenido generado?
+			
+			Solución:
+
+			Revisar licencias de datos de entrenamiento
+			Usar modelos con licencias claras
+			Políticas claras de uso
+			
+	Riesgos de Seguridad
+	
+		Prompt Injection
+			Usuarios maliciosos manipulan el LLM
+			
+			Solución:
+
+			Implementar guardrails
+			Validar inputs
+			Usar Llama Guard
+			
+			
+		Datos Sensibles en Entrenamiento
+			Entrenar con datos confidenciales
+		
+			Solución:
+
+			Limpiar datos antes de entrenar
+			Usar técnicas de privacidad (DP, federated learning)
+	
+	
+	Riesgos Éticos
+		
+		Sesgo (Bias)
+			El modelo aprende sesgos de los datos
+			
+			Solución:
+
+			Auditar datos de entrenamiento
+			Medir fairness metrics
+			Balance de datasets
+			
+		Alucinaciones (Hallucinations)
+			El LLM inventa información falsa
+			
+			Tipos:
+				Intrínseca: Contradice su propia respuesta
+				Extrínseca: Inventa datos que no existen
+				
+			Solución:
+
+				Usar RAG con datos verificados
+				Implementar fact-checking
+				Pedir citas/fuentes
+				
+				
+	Riesgos Sociales y Ambientales
+	
+		Impacto Laboral
+			Automatización puede eliminar empleos
+			
+			Solución:
+
+				Re-entrenar empleados
+				Usar IA como asistente, no reemplazo
+				
+		Consumo Energético
+			Entrenar LLMs consume mucha energía
+			
+			Solución:
+
+				Usar modelos pre-entrenados
+				Fine-tuning eficiente
+				Optimizar inferencia
+		
