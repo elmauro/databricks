@@ -183,7 +183,6 @@ Devuelve el análisis en este formato:
   "sentimiento": "..."
 }
 ```
-```
 
 #### 2. Especificar Formato de Output
 
