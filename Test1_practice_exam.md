@@ -1,528 +1,638 @@
-Practice Exam: Databricks Generative AI Engineer
+### 1. A Generative AI Engineer is tasked with extracting content from a set of HTML-based user manuals. The manuals contain product details in nested tables. What is the most suitable tool for text extraction? (Choose two)
 
-Q1. A Generative AI Engineer is tasked with extracting content from a set of HTML-based user manuals. The manuals contain product details in nested tables. What is the most suitable tool for text extraction? (Choose two)
-Choices:
-A) BeautifulSoup for parsing HTML and extracting text from structured elements.
-B) pdfplumber for extracting table data.
-C) LXML for faster parsing and processing of large HTML documents.
-D) PyPDF2 for reading text from user manuals.
-E) pytesseract for OCR-based text extraction.
-Correct answer(s): A, C
-Rationale: Combining BeautifulSoup and lxml enables robust, efficient extraction of structured text from HTML.
+- ✅ **BeautifulSoup for parsing HTML and extracting text from structured elements.**
+- pdfplumber for extracting table data.
+- ✅ **LXML for faster parsing and processing of large HTML documents.**
+- PyPDF2 for reading text from user manuals.
+- pytesseract for OCR-based text extraction.
 
-Q2. A Generative AI Engineer has been asked to design an LLM-based application that answers employee HR questions using HR PDF documentation. Which set of high-level tasks should the Generative AI Engineer‘s system perform?
-Choices:
-A) Split HR documentation into chunks and embed into a vector store. Use the employee question to retrieve best-matched chunks of documentation, and use the LLM to generate a response to the employee based upon the documentation retrieved.
-B) Calculate averaged embeddings for each HR document, compare embeddings to user query to find the best document. Pass the best document with the user query into an LLM with a large context window to generate a response to the employee.
-C) Create an interaction matrix of historical employee questions and HR documentation. Use ALS to factorize the matrix and create embeddings. Calculate the embeddings of new queries and use them to find the best HR documentation. Use an LLM to generate a response to the employee question based upon the documentation retrieved.
-D) Use an LLM to summarize HR documentation. Provide summaries of documentation and user query into an LLM with a large context window to generate a response to the user.
-Correct answer(s): A
-Rationale: Chunking and embedding into a vector store with retrieval-augmented generation is the standard, accurate approach.
+Combining BeautifulSoup and LXML ensures robust and efficient extraction of structured text from HTML-based manuals.
 
-Q3. A Generative AI Engineer would like an LLM to generate formatted JSON from emails. This requires parsing and extracting the following information: order ID, date, and sender email. Which prompt will achieve this with the highest accuracy?
-Choices:
-A) You will receive customer emails and need to extract date, sender email, and order ID. You should return the date, sender email, and order ID information in JSON format.
-B) You will receive customer emails and need to extract date, sender email, and order ID. Return the extracted information in JSON format. Here’s an example: {"date": "April 16, 2024", "sender_email": "john.doe@example.com", "order_id": "ORD98765"}.
-C) You will receive customer emails and need to extract date, sender email, and order ID. Return the extracted information in JSON format.
-D) You will receive customer emails and need to extract date, sender email, and order ID. Return the extracted information in a human-readable format.
-Correct answer(s): B
-Rationale: Providing an explicit example (few-shot) improves accuracy and consistency.
+---
 
-Q4. A Generative AI Engineer is developing an LLM application that users can use to generate personalized birthday poems based on their names. Which technique would be most effective in safeguarding the application, given the potential for malicious user inputs?
-Choices:
-A) Increase the amount of compute that powers the LLM to process input faster
-B) Reduce the time that the users can interact with the LLM
-C) Implement a safety filter that detects any harmful inputs and ask the LLM to respond that it is unable to assist
-D) Ask the LLM to remind the user that the input is malicious but continue the conversation with the user
-Correct answer(s): C
-Rationale: Safety filters prevent processing/responding to harmful inputs.
+### 2. A Generative AI Engineer has been asked to design an LLM-based application that answers employee HR questions using HR PDF documentation. Which set of high-level tasks should the Generative AI Engineer‘s system perform?
 
-Q5. A Generative AI Engineer has been asked to build an LLM-based question-answering application. Documents are frequently published; cost/effort should be minimal. Which setup meets these requirements?
-Choices:
-A) Prompt, agent, and a fine-tuned LLM; the agent retrieves relevant content for the prompt.
-B) Prompt, retriever, and an LLM; insert retriever output into the prompt.
-C) Frequently fine-tune the LLM with new documents.
-D) Prompt engineering and an LLM only.
-Correct answer(s): B
-Rationale: Retriever + prompt + LLM minimizes cost and supports dynamic updates.
+- ✅ **Split HR documentation into chunks and embed into a vector store. Use the employee question to retrieve best-matched chunks of documentation, and use the LLM to generate a response to the employee based upon the documentation retrieved.**
+- Calculate averaged embeddings for each HR document, compare embeddings to user query to find the best document. Pass the best document with the user query into an LLM with a large context window to generate a response to the employee.
+- Create an interaction matrix of historical employee questions and HR documentation. Use ALS to factorize the matrix and create embeddings. Calculate the embeddings of new queries and use them to find the best HR documentation. Use an LLM to generate a response to the employee question based upon the documentation retrieved.
+- Use an LLM to summarize HR documentation. Provide summaries of documentation and user query into an LLM with a large context window to generate a response to the user.
 
-Q6. An external chatbot must route questions to appropriate models (events vs ticket purchases). What is an ideal workflow?
-Choices:
-A) Two different chatbots for different types of queries.
-B) A multi-step LLM workflow: identify question type, then route to the appropriate model/tool (e.g., text-to-SQL vs payment platform).
-C) Only look at previous event information.
-D) Only process payments.
-Correct answer(s): B
-Rationale: Multi-step routing supports diverse tasks effectively.
+Chunking HR documents and embedding them into a vector store ensures accurate retrieval and relevance for employee questions, making it the best solution.
 
-Q7. What is an effective method to preprocess prompts using custom code before sending them to an LLM?
-Choices:
-A) Directly modify the LLM’s internal architecture to include preprocessing steps
-B) Write an MLflow PyFunc model that has a separate function to process the prompts
-C) Prefer postprocessing over preprocessing
-D) Avoid custom preprocessing because the LLM wasn’t trained on it
-Correct answer(s): B
-Rationale: PyFunc models encapsulate reusable preprocessing logic.
+---
 
-Q8. What is the most suitable library for building a multi-step LLM-based workflow?
-Choices:
-A) TensorFlow
-B) PySpark
-C) LangChain
-D) Pandas
-Correct answer(s): C
-Rationale: LangChain is designed for LLM chaining and tool orchestration.
+### 3. A Generative AI Engineer would like an LLM to generate formatted JSON from emails. This requires parsing and extracting the following information: order ID, date, and sender email. Here’s a sample email: Date: April 23, 2024 Time: 4:22 PM From: anjali.thayer@example.com To: support@company.com Subject: Shipment details Hey there, I have a shipment (order ID is CD34RFT). Can you please send me an update? Thank you, Anjali They need to write a prompt that will extract the relevant information in JSON format with the highest level of output accuracy. Which prompt will achieve this?
 
-Q9. A patient-facing healthcare chatbot should detect emergencies. Given: “severe headaches and dizziness for two days,” which response is most appropriate?
-Choices:
-A) Here are a few relevant articles for your browsing. Let me know if you have questions after reading them.
-B) Headaches can be tough. Hope you feel better soon!
-C) Please provide your age, recent activities, and other symptoms.
-D) Please call your local emergency services.
-Correct answer(s): D
-Rationale: Safety-critical symptoms warrant directing to emergency services.
+- You will receive customer emails and need to extract date, sender email, and order ID. You should return the date, sender email, and order ID information in JSON format.
+- ✅ **You will receive customer emails and need to extract date, sender email, and order ID. Return the extracted information in JSON format. Here’s an example: {“date”: “April 16, 2024”, “sender_email”: “john.doe@example.com”, “order_id”: “ORD98765”}.**
+- You will receive customer emails and need to extract date, sender email, and order ID. Return the extracted information in JSON format.
+- You will receive customer emails and need to extract date, sender email, and order ID. Return the extracted information in a human-readable format.
 
-Q10. Answering latest stock news: Which will NOT help ensure relevance?
-Choices:
-A) Increase compute for faster processing.
-B) Incorporate manual reviews before sending to users.
-C) Implement guardrails with finance-specific content filters.
-D) Implement a profanity filter to screen out offensive language.
-Correct answer(s): D
-Rationale: Profanity filtering doesn’t improve topic relevance.
+Including an example of the desired JSON output format provides explicit guidance to the LLM, ensuring high accuracy and consistency.
 
-Q11. Summaries include explanations of how they were generated. What change resolves this?
-Choices:
-A) Provide few-shot examples of desired output format in prompts.
-B) Split output by newline characters to truncate explanation.
-C) Tune chunk size or different embedding models.
-D) Revisit document ingestion logic.
-Correct answer(s): A
-Rationale: Few-shot formatting guides concise outputs.
+---
 
-Q12. Deploying a RAG app with privacy compliance. What measures are critical? (Choose two)
-Choices:
-A) Skip encryption; rely on private network access.
-B) Allow unrestricted access initially.
-C) Use public vector stores to simplify storage.
-D) Use API key authentication.
-E) Encrypt data at rest and in transit.
-Correct answer(s): D, E
-Rationale: Encryption and authenticated access are essential for compliance.
+### 4. A Generative AI Engineer is developing an LLM application that users can use to generate personalized birthday poems based on their names. Which technique would be most effective in safeguarding the application, given the potential for malicious user inputs?
 
-Q13. Deploying an app with a custom MLflow PyFunc model returning interim results. How should secrets/credentials be passed to the endpoint?
-Choices:
-A) Use spark.conf.set()
-B) Use the Databricks Feature Store API
-C) Pass secrets in plain text
-D) Add credentials using environment variables
-Correct answer(s): D
-Rationale: Environment variables are secure and standard.
+- Increase the amount of compute that powers the LLM to process input faster
+- Reduce the time that the users can interact with the LLM
+- ✅ **Implement a safety filter that detects any harmful inputs and ask the LLM to respond that it is unable to assist**
+- Ask the LLM to remind the user that the input is malicious but continue the conversation with the user
 
-Q14. Generating poem-like summaries with desired tone/style. Which approach will NOT help?
-Choices:
-A) Explicitly instruct desired tone and style.
-B) Fine-tune the LLM on desired tone/style data.
-C) Use a neutralizer to normalize the tone and style of underlying documents.
-D) Include few-shot examples in the prompt.
-Correct answer(s): C
-Rationale: Neutralizing documents doesn’t align generation tone/style.
+Safety filters detect harmful inputs and prevent the LLM from processing or responding to them, ensuring secure operation.
 
-Q15. Evaluating translation accuracy: which metric?
-Choices:
-A) Perplexity
-B) ROUGE
-C) BLEU
-D) Cosine Similarity
-Correct answer(s): C
-Rationale: BLEU is standard for machine translation quality.
+---
 
-Q16. Designing a RAG app for technical regulations. Correct build/deploy sequence?
-Choices:
-A) Ingest → Index to Vector Search → User queries LLM → Retrieve → Evaluate → Generate → Deploy.
-B) Ingest → Index to Vector Search → User queries LLM → Retrieve → Generate → Evaluate → Deploy.
-C) Ingest → Index to Vector Search → Evaluate → Deploy.
-D) User queries LLM → Ingest → Index → Retrieve → Generate → Evaluate → Deploy.
-Correct answer(s): B
-Rationale: Retrieve, then generate, then evaluate, then deploy.
+### 5. A Generative AI Engineer has been asked to build an LLM-based question-answering application. The application should take into account new documents that are frequently published. The engineer wants to build this application with the least cost, least development effort, and lowest operational cost. Which combination of chaining components and configuration meets these requirements?
 
-Q17. Evaluate prompt-response pairs for a support chatbot. What criteria are most important? (Choose two)
-Choices:
-A) Response completeness
-B) Random sampling for variety
-C) Prompt relevance to the query
-D) Token usage efficiency
-E) Prompt verbosity
-Correct answer(s): A, C
-Rationale: Relevant prompts and complete responses ensure alignment.
+- For the application a prompt, an agent, and a fine-tuned LLM are required. The agent is used by the LLM to retrieve relevant content that is inserted into the prompt which is given to the LLM to generate answers.
+- ✅ **For the application a prompt, a retriever, and an LLM are required. The retriever output is inserted into the prompt which is given to the LLM to generate answers.**
+- The LLM needs to be frequently fine-tuned with the new documents in order to provide the most up-to-date answers.
+- For the question-answering application, prompt engineering and an LLM are required to generate answers.
 
-Q18. Gaming chatbot engagement/retention: which metric helps?
-Choices:
-A) Randomness
-B) Repetition of responses
-C) Lack of relevance
-D) Diversity of responses
-Correct answer(s): D
-Rationale: Diverse responses increase engagement.
+A prompt, retriever, and LLM setup achieves dynamic responses while minimizing cost and complexity, making it the ideal choice for this scenario.
 
-Q19. Generate summaries of technical research articles. Which evaluation metric?
-Choices:
-A) Word Count
-B) ROUGE
-C) Latency
-D) BLEU
-Correct answer(s): B
-Rationale: ROUGE is standard for summarization.
+---
 
-Q20. RAG app produces incomplete responses on large dataset of tickets. What strategy? (Choose two)
-Choices:
-A) Add segment labels (section headers) to chunks.
-B) Use a larger embedding model.
-C) Limit number of retrieved chunks.
-D) Decrease chunk size.
-E) Increase chunk size.
-Correct answer(s): A, D
-Rationale: Smaller chunks fit context; segment labels improve structure.
+### 6. A Generative AI Engineer received the following business requirements for an external chatbot: The chatbot needs to know what types of questions the user asks and routes to appropriate models to answer the questions. For example, the user might ask about upcoming event details or ticket purchases. What is an ideal workflow for such a chatbot?
 
-Q21. Recommend best-matched team member considering dates and profile alignment (unstructured text). Which architecture?
-Choices:
-A) Tool for date availability; embed team profiles; use project scope + filters for retrieval.
-B) Tool for dates; embed project scopes; retrieve using team profiles.
-C) Tool for dates; extract keywords; keyword match profiles.
-D) Tool for dates; tool to compute similarity over profile-scope pairs; iterate and rank.
-Correct answer(s): A
-Rationale: Embed profiles and retrieve by project scope + availability.
+- There should be two different chatbots handling different types of user queries.
+- ✅ **The chatbot should be implemented as a multi-step LLM workflow. First, identify the type of question asked, then route the question to the appropriate model. If it’s an upcoming event question, send the query to a text-to-SQL model. If it’s about ticket purchasing, the customer should be redirected to a payment platform.**
+- The chatbot should only look at previous event information.
+- The chatbot should only process payments.
 
-Q22. Easiest process to deploy a trained LLM on Databricks?
-Choices:
-A) Flask + Gunicorn
-B) Log with MLflow, register to Unity Catalog via MLflow API, start serving endpoint
-C) Save locally, build Docker, run container
-D) Pickle, upload to Unity Catalog Volume, register, serve
-Correct answer(s): B
-Rationale: MLflow + Unity Catalog streamline registration and serving.
+A multi-step LLM workflow allows the chatbot to handle diverse queries efficiently by identifying the query type and routing it appropriately.
 
-Q23. Chunking/indexing legal texts with long sections. Best chunking strategy?
-Choices:
-A) Split into logical sections by headings/subheadings under token limits.
-B) Process each document as a single chunk.
-C) Overlap all chunks by 30% always.
-D) Equal-sized chunks ignoring structure.
-Correct answer(s): A
-Rationale: Structure-aware chunking preserves meaning and fits limits.
+---
 
-Q24. App requires up-to-date news articles and stock prices. How to architect?
-Choices:
-A) Store news and prices in a vector store; use RAG at runtime.
-B) Agent with tools for SQL on Delta and web search; provide values to LLM.
-C) LLM summarizes news and looks up tickers.
-D) Query Delta for prices and use LLM to generate volatility queries.
-Correct answer(s): B
-Rationale: Agent tools enable real-time stock and news integration.
+### 7. What is an effective method to preprocess prompts using custom code before sending them to an LLM?
 
-Q25. RAG app on PDF source docs (text + images); least code to extract text?
-Choices:
-A) flask
-B) unstructured
-C) beautifulsoup
-D) numpy
-Correct answer(s): B
-Rationale: The unstructured package extracts text from mixed-content PDFs with minimal code.
+- Directly modify the LLM’s internal architecture to include preprocessing steps
+- ✅ **Write an MLflow PyFunc model that has a separate function to process the prompts**
+- Rather than preprocessing prompts, it’s more effective to postprocess the LLM outputs to align the outputs to desired outcomes
+- It is better not to introduce custom code to preprocess prompts as the LLM has not been trained with examples of the preprocessed prompts
 
-Q26. Need open-source LLM with large context window.
-Choices:
-A) Llama2-70B
-B) DBRX
-C) MPT-30B
-D) DistilBERT
-Correct answer(s): C
-Rationale: MPT-30B is open-source and optimized for large context windows.
+A PyFunc model is a robust and scalable solution for preprocessing prompts, allowing custom logic to align inputs with desired outcomes.
 
-Q27. Augment inputs for meal-plan chatbot using ingredients and restrictions. (Choose two)
-Choices:
-A) Include additional context (portion sizes, preferences) in prompt.
-B) Train a rule-based system.
-C) Add examples of similar meal plans in the prompt.
-D) Use a classification model to categorize inputs.
-E) Summarize inputs to condense key points.
-Correct answer(s): A, C
-Rationale: Contextual prompts and examples drive personalized plans.
+---
 
-Q28. Small internal, sensitive RAG; high-quality answers; no third-party transmission. Which model?
-Choices:
-A) Llama2-70B
-B) BGE-large
-C) OpenAI GPT-4
-D) Dolly 1.5B
-Correct answer(s): A
-Rationale: Llama2-70B is open-source, high-quality, and deployable internally.
+### 8. What is the most suitable library for building a multi-step LLM-based workflow?
 
-Q29. Preprocessing pipeline to normalize queries and remove symbols. Which approach?
-Choices:
-A) PyFunc model implementing preprocessing logic integrated with app.
-B) Delta Live Table to preprocess queries.
-C) Spark job to normalize queries.
-D) Fine-tune the LLM to preprocess internally.
-Correct answer(s): A
-Rationale: PyFunc is efficient, reusable for preprocessing.
+- TensorFlow
+- PySpark
+- ✅ **LangChain**
+- Pandas
 
-Q30. Enhance RAG app using Delta customer data; need safe dev testing with realistic data.
-Choices:
-A) Point dev to production table.
-B) Copy entire table into dev unchanged.
-C) Use Unity Catalog to create dev-specific view with access controls and masking.
-D) Use synthetic dataset mimicking schema and characteristics.
-E) Use Delta Sharing for limited query access from dev.
-Correct answer(s): C
-Rationale: UC masked views provide realistic yet secure dev data.
+LangChain provides the tools needed for creating complex workflows with LLMs, making it the most suitable library for this task.
 
-Q31. Evaluate model for summarizing academic research papers for semantic accuracy and domain relevance. (Choose two)
-Choices:
-A) Human evaluation for domain correctness.
-B) Evaluate token usage for cost.
-C) BLEU for similarity with references.
-D) Perplexity for fluency.
-E) ROUGE for overlap plus domain-specific metrics.
-Correct answer(s): A, E
-Rationale: Combine ROUGE with human/domain evaluation.
+---
 
-Q32. RAG app answers about internal SnoPen AI docs; filter irrelevant content.
-Choices:
-A) Consolidate all SnoPen AI documents into one chunk.
-B) Include system prompt constraint to only answer SnoPen AI-related questions.
-C) Keep all articles, including irrelevant ones.
-D) Tell the system all information is about SnoPen AI without filtering.
-Correct answer(s): B
-Rationale: System prompt constraints narrow scope effectively.
+### 9. A Generative AI Engineer is developing a patient-facing healthcare-focused chatbot. If the patient’s question is not a medical emergency, the chatbot should solicit more information and suggest relevant articles. If the question is urgent, it should direct the patient to emergency services. Given the input: “I have been experiencing severe headaches and dizziness for the past two days,” which response is most appropriate?
 
-Q33. After creating `VectorSearchClient` and endpoint with default managed embeddings, what next?
-Choices:
-A) vsc.similarity_search()
-B) vsc.create_direct_access_index()
-C) vsc.create_delta_sync_index()
-D) vsc.get_index()
-Correct answer(s): C
-Rationale: Create a Delta-synced index for embedding synchronization.
+- Here are a few relevant articles for your browsing. Let me know if you have questions after reading them.
+- Headaches can be tough. Hope you feel better soon!
+- Please provide your age, recent activities, and any other symptoms you have noticed along with your headaches and dizziness.
+- ✅ **Please call your local emergency services.**
 
-Q34. Agent-based LLM system for monster truck team: text Q&A, event API, table queries. Best design?
-Choices:
-A) Force LLM to output "RAG", "API", or "TABLE"; parse and route.
-B) Put all possible dates/tables in the system prompt; use RAG for generic questions.
-C) Write an agent system prompt listing tools and bundle into an agent that runs multiple calls to solve a query.
-D) Ingest PDFs into a vector store and use only RAG.
-Correct answer(s): C
-Rationale: Tool-using agent supports flexible, multi-capability workflows.
+When symptoms suggest a potential emergency, the chatbot must prioritize safety by directing the user to contact emergency services.
 
-Q35. Deployed application has insufficient volume for provisioned throughput. Cost-effective deployment?
-Choices:
-A) Use External Models instead.
-B) Manually throttle incoming batches.
-C) Deploy using pay-per-token throughput with cost guarantees.
-D) Change to a smaller model to reduce hardware.
-Correct answer(s): C
-Rationale: Pay-per-token aligns costs with low usage.
+---
 
-Q36. LangChain chain error (LLMChain missing LLM). What change fixes it?
-Choices:
-A) Format prompt then LLMChain(prompt=prompt.format("funny")); llm.generate()
-B) LLMChain(llm=OpenAI(), prompt=prompt); llm.generate([{"adjective": "funny"}])
-C) Put llm=OpenAI() inside PromptTemplate
-D) LLMChain(prompt=prompt); llm.generate("funny")
-Correct answer(s): B
-Rationale: LLMChain must be initialized with an LLM instance.
+### 10. A Generative AI Engineer is building a system which will answer questions on latest stock news articles. Which will NOT help with ensuring the outputs are relevant to financial news?
 
-Q37. Cost-conscious startup in cancer research building RAG with Foundation Model APIs. Best quality while cost-efficient?
-Choices:
-A) Limit number of queries per customer per day.
-B) Use the largest LLM.
-C) Limit number of relevant documents retrievable.
-D) Pick a smaller, domain-specific LLM.
-Correct answer(s): D
-Rationale: Smaller domain-specific models balance quality and cost.
+- Increase the compute to improve processing speed of questions to allow greater relevancy analysis.
+- Incorporate manual reviews to correct any problematic outputs prior to sending to the users.
+- Implement a comprehensive guardrail framework that includes policies for content filters tailored to the finance sector.
+- ✅ **Implement a profanity filter to screen out offensive language.**
 
-Q38. Dataframe with document name and array of text chunks; want to store for Vector Search. Most performant way?
-Choices:
-A) Create unique ID per document; save to Delta.
-B) Flatten to one chunk per row, unique ID per row; save to Delta.
-C) Split into train/test; unique ID per document; save to Delta.
-D) Store each chunk as independent JSON in UC Volume.
-Correct answer(s): B
-Rationale: Flattened rows with unique IDs optimize retrieval.
+A profanity filter does not affect the relevance of financial news outputs, as it addresses only the appropriateness of language.
 
-Q39. Serve a code generation model for developers (multiple languages); quality is primary. Best fit?
-Choices:
-A) BGE-large
-B) CodeLlama-34B
-C) MPT-7b
-D) Llama2-70b
-Correct answer(s): B
-Rationale: CodeLlama-34B is specialized for multi-language code generation.
+---
 
-Q40. Fraud detection system using LLM; needs experiment tracking, metrics, deploy to prod. Which approach?
-Choices:
-A) Custom scripts + Flask deploy.
-B) Cloud document management for tracking.
-C) TensorFlow built-in logging/deploy.
-D) MLflow to log experiments, metrics, and streamline deployment.
-E) Spreadsheet to record results.
-Correct answer(s): D
-Rationale: MLflow covers tracking and deployment lifecycle.
+### 11. A Generative AI Engineer is creating an LLM system that retrieves news articles from the year 1918 related to a user query and summarizes them. However, the summaries often include explanations of how they were generated, which is undesirable. Which change should the engineer implement to resolve this?
 
-Q41. Live sports commentary platform with real-time updates. Which tool enables real-time data access?
-Choices:
-A) Foundation Model APIs
-B) Feature Serving
-C) DatabricksIQ
-D) AutoML
-Correct answer(s): B
-Rationale: Feature Serving delivers low-latency real-time data.
+- ✅ **Provide few-shot examples of desired output format to the system and/or user prompt.**
+- Split the LLM output by newline characters to truncate away the summarization explanation.
+- Tune the chunk size of news articles or experiment with different embedding models.
+- Revisit their document ingestion logic, ensuring that the news articles are being ingested properly.
 
-Q42. Evaluate an internal RAG app formally.
-Choices:
-A) Use LLM-as-a-judge on final answers only.
-B) Curate datasets to test retrieval and generation separately; use MLflow evaluation metrics.
-C) Use cosine similarity on final answers only.
-D) Benchmark multiple LLMs and pick the best.
-Correct answer(s): B
-Rationale: Separate retrieval and generation evaluation is systematic and actionable.
+Providing few-shot examples demonstrates the correct format, ensuring the LLM outputs concise summaries without additional explanations.
 
-Q43. Reasoning system for legal contracts: highlight risks, propose alternatives, summarize. What tools? (Choose two)
-Choices:
-A) Retrieval system for legal precedents/templates.
-B) Classification model for clause risk levels.
-C) Decision tree to guide users.
-D) Embedding model to semantically analyze clauses.
-E) Visualization tool to highlight clauses.
-Correct answer(s): A, D
-Rationale: Embeddings + retrieval enable risk evaluation and clause suggestions.
+---
 
-Q44. RAG system user satisfaction declines due to irrelevant outputs; retrieval latency is high. Focus on which metrics?
-Choices:
-A) Perplexity and BLEU.
-B) Precision, recall, and retrieval latency.
-C) User query frequency.
-D) Token usage and response length.
-Correct answer(s): B
-Rationale: Relevance and latency metrics diagnose retrieval quality and bottlenecks.
+### 12. A Generative AI Engineer is tasked with deploying a RAG application for customer support that integrates LLMs and a vector store. The application must comply with data privacy regulations. What compliance measures are critical? (Choose two)
 
-Q45. Changed LLM to shorter context; getting prompt token count exceeds limit. What two solutions without changing response model? (Choose two)
-Choices:
-A) Decrease chunk size of embedded documents.
-B) Use a smaller embedding model.
-C) Reduce maximum output tokens.
-D) Reduce number of records retrieved from vector DB.
-E) Retrain response model using ALiBi.
-Correct answer(s): A, D
-Rationale: Smaller chunks and fewer retrieved records reduce total tokens.
+- Skip encryption and rely on private network access.
+- Allow unrestricted access to the application during initial deployment.
+- Use public vector stores to simplify storage.
+- ✅ **Use API key authentication to control access to the application.**
+- ✅ **Encrypt data at rest and in transit to protect sensitive information.**
 
-Q46. Prevent hallucinations in medical queries.
-Choices:
-A) Use shorter prompts.
-B) Lower temperature.
-C) Ground responses using RAG connected to verified medical sources.
-D) Train on diverse datasets.
-Correct answer(s): C
-Rationale: Grounding with verified sources reduces hallucinations.
+Encryption and API key authentication are essential for ensuring compliance and security in customer support applications.
 
-Q47. Personalized travel itineraries incorporating budget, preferences, destination details. Critical components? (Choose two)
-Choices:
-A) Rule-based system with predefined itineraries.
-B) Summarization model to condense inputs.
-C) Classification model for destinations by type.
-D) Embedding model for destinations and preferences.
-E) LLM to generate detailed itineraries.
-Correct answer(s): D, E
-Rationale: Embeddings for matching + LLM for detailed generation.
+---
 
-Q48. Banking conversational agent handling sensitive information securely. Best approach?
-Choices:
-A) Use summarization to reduce data volume.
-B) Lower temperature.
-C) Train on anonymized datasets only.
-D) Implement encryption for sensitive data and guardrails to avoid leakage.
-Correct answer(s): D
-Rationale: Encryption + guardrails are core to secure handling.
+### 13. A Generative AI Engineer is tasked with deploying an application that takes advantage of a custom MLflow Pyfunc model to return some interim results. How should they configure the endpoint to pass the secrets and credentials?
 
-Q49. Translate unstructured user feedback into actionable tasks with priorities and deadlines. Best approach?
-Choices:
-A) Summarization model only.
-B) LLM to analyze feedback and generate structured outputs with priorities and deadlines.
-C) Classification model to categorize feedback.
-D) Rule-based keyword extraction.
-Correct answer(s): B
-Rationale: LLMs can produce structured, actionable outputs from text.
+- Use spark.conf.set()
+- Pass variables using the Databricks Feature Store API
+- Pass the secrets in plain text
+- ✅ **Add credentials using environment variables**
 
-Q50. Extract text from scanned invoices in JPG format.
-Choices:
-A) PyPDF2
-B) BeautifulSoup
-C) Tesseract OCR via pytesseract
-D) pdfplumber
-Correct answer(s): C
-Rationale: pytesseract provides OCR for images like JPGs.
+Environment variables ensure secure handling of secrets or credentials without exposing them in the code.
 
-Q51. Generate summaries of financial reports with tables; what to prioritize?
-Choices:
-A) Largest context length
-B) Model optimized for numerical reasoning and summarization
-C) Open-domain generative model
-D) Cheapest model
-Correct answer(s): B
-Rationale: Numerical reasoning is critical for financial tables.
+---
 
-Q52. LangChain chain for multi-turn questions about device specs with detailed responses. Include which elements? (Choose two)
-Choices:
-A) Rule-based system for fixed answers.
-B) Summarization model to shorten long responses.
-C) Retriever to fetch device specs from vector store.
-D) Prompt template maintaining conversation history.
-E) Sentiment analysis.
-Correct answer(s): C, D
-Rationale: Retriever + conversational prompt provide context-aware answers.
+### 14. A Generative AI Engineer is building a system that generates poem-like article summaries (e.g., haikus). The output doesn’t match the desired tone or style. Which approach will NOT improve the response?
 
-Q53. Which temperature setting encourages creative, varied responses?
-Choices:
-A) Temperature near 0
-B) Exactly 0.5
-C) Disable temperature control
-D) Higher temperature (e.g., 1.0+)
-Correct answer(s): D
-Rationale: Higher temperature increases randomness/creativity.
+- Provide the LLM with a prompt that explicitly instructs it to generate text in the desired tone and style.
+- Fine-tune the LLM on a dataset of desired tone and style.
+- ✅ **Use a neutralizer to normalize the tone and style of the underlying documents.**
+- Include few-shot examples in the prompt to the LLM.
 
-Q54. LangChain chain must include context from a vector store and generate coherent answers. What components? (Choose two)
-Choices:
-A) Prompt template to structure user queries.
-B) Rule-based system to hardcode responses.
-C) Retriever for relevant context from vector store.
-D) Summarization model for condensing inputs.
-E) Classification for intents.
-Correct answer(s): A, C
-Rationale: Prompt templates + retrievers are core to RAG with LangChain.
+Neutralizing input documents affects their content but does not align the LLM‘s output tone or style with the desired result.
 
-Q55. Pipeline to convert unstructured legal documents into structured summaries highlighting clauses, risks, obligations. Which tools?
-Choices:
-A) LLM fine-tuned on legal text for structured summaries.
-B) Rule-based clause extraction.
-C) Summarization model trained on general text.
-D) Retrieval for similar legal cases.
-Correct answer(s): A
-Rationale: Fine-tuned legal LLMs generate structured, domain-appropriate summaries.
+---
 
-Q56. Register a deployed model to Unity Catalog using MLflow. Correct workflow?
-Choices:
-A) Train → Log to MLflow → Configure metadata → Register to Unity Catalog.
-B) Log to MLflow but skip registration.
-C) Skip metadata configuration.
-D) Deploy directly to Unity Catalog without MLflow logging.
-Correct answer(s): A
-Rationale: MLflow logging and metadata precede UC registration.
+### 15. A Generative AI Engineer is evaluating the quality of translations generated by an LLM-based translation application. Which metric should they use to assess the accuracy of the translations?
 
-Q57. Deploy a secure endpoint for a RAG app with sensitive legal docs; privacy compliance. Essential measures? (Choose two)
-Choices:
-A) Encrypt data at rest and in transit.
-B) Shared access key for all users.
-C) API key-based authentication for endpoint access.
-D) Skip authentication.
-E) Public endpoints without encryption.
-Correct answer(s): A, C
-Rationale: Encryption and authenticated access are mandatory for compliance.
+- Perplexity
+- ROUGE
+- ✅ **BLEU**
+- Cosine Similarity
+
+BLEU is the standard metric for evaluating machine translation quality by measuring how closely the generated text matches reference translations using n-gram comparisons.
+
+---
+
+### 16. A Generative AI Engineer is designing a RAG application to help users answer questions about technical regulations as they learn a new sport. What sequence of steps should they follow to build and deploy this application?
+
+- Ingest documents from a source → Index the documents and save to Vector Search → User submits queries against an LLM → LLM retrieves relevant documents → Evaluate model → LLM generates a response → Deploy it using Model Serving.
+- ✅ **Ingest documents from a source → Index the documents and save to Vector Search → User submits queries against an LLM → LLM retrieves relevant documents → LLM generates a response → Evaluate model → Deploy it using Model Serving.**
+- Ingest documents from a source → Index the documents and save to Vector Search → Evaluate model → Deploy it using Model Serving.
+- User submits queries against an LLM → Ingest documents from a source → Index the documents and save to Vector Search → LLM retrieves relevant documents → LLM generates a response → Evaluate model → Deploy it using Model Serving.
+
+Following the proper sequence ensures the RAG application is correctly built, tested, and deployed to handle user queries effectively.
+
+---
+
+### 17. A Generative AI Engineer must evaluate prompt-response pairs for a customer support chatbot. What criteria are most important to ensure alignment with the model‘s task? (Choose two)
+
+- ✅ **Response completeness, addressing all aspects of the query.**
+- Random sampling of responses for variety.
+- ✅ **Prompt relevance to the customer’s query.**
+- Token usage efficiency to reduce computational costs.
+- Prompt verbosity to provide context.
+
+Relevant prompts and complete responses ensure the chatbot aligns with its task, providing accurate and helpful outputs.
+
+---
+
+### 18. A Generative AI Engineer is designing a chatbot for a gaming company to engage users during online gameplay. Which metric would help increase engagement and retention?
+
+- Randomness
+- Repetition of responses
+- Lack of relevance
+- ✅ **Diversity of responses**
+
+Diverse responses keep the chatbot engaging and help maintain user interest, improving retention during gameplay.
+
+---
+
+### 19. A Generative AI Engineer is building an LLM application that generates summaries of technical research articles. Which metric should they use to evaluate the quality of the summaries?
+
+- Word Count
+- ✅ **ROUGE**
+- Latency
+- BLEU
+
+ROUGE evaluates summarization quality by measuring overlap in recall, precision, and F1 score between generated and reference summaries. It is a standard metric for this use case.
+
+---
+
+### 20. A Generative AI Engineer is developing a RAG application for a large dataset of customer support tickets. However, the application is producing incomplete responses, where the answers are cut off or lack sufficient detail. What strategy should the engineer apply to mitigate this issue? (Choose two)
+
+- ✅ **Add segment labels (e.g., section headers) to the chunks to improve context relevance during retrieval.**
+- Use a larger embedding model to improve the quality of embeddings and document retrieval.
+- Limit the number of retrieved chunks to minimize response errors.
+- ✅ **Decrease the chunk size of documents to ensure more manageable context for the LLM.**
+- Increase the chunk size of documents to reduce fragmentation of context.
+
+Decreasing the chunk size ensures that context fits within the LLM’s token limit, while adding segment labels provides clearer structure for the model to generate complete responses.
+
+---
+
+### 21. A Generative AI Engineer is building a Generative AI system to recommend the best-matched team member for newly scoped projects. The match must consider project date availability and profile alignment with the project scope. Both the employee profile and project scope are stored as unstructured text. What system architecture should they use?
+
+- ✅ **Create a tool for finding available team members given project dates. Embed team profiles into a vector store and use the project scope and filtering to perform retrieval to find the available best-matched team members.**
+- Create a tool for finding available team members given project dates. Embed all project scopes into a vector store, perform a retrieval using team member profiles to find the best team member.
+- Create a tool for finding team member availability given project dates and another tool that uses an LLM to extract keywords from project scopes. Iterate through available team members’ profiles and perform keyword matching to find the best available team member.
+- Create a tool to find available team members given project dates. Create a second tool that can calculate a similarity score for a combination of team member profile and the project scope. Iterate through the team members and rank by best score to select a team member.
+
+Embedding team profiles into a vector store and using retrieval ensures precise and scalable matching for large datasets of team members and project scopes.
+
+---
+
+### 22. A Generative AI Engineer has trained an LLM on Databricks and wants to deploy it. What is the easiest process for deploying the model on Databricks?
+
+- Wrap the LLM into a Flask app and serve using Gunicorn.
+- ✅ **Log the model using MLflow during training, directly register it to Unity Catalog using the MLflow API, and start a serving endpoint.**
+- Save the model locally, build a Docker image, and run a Docker container.
+- Log the model as a pickle object, upload to Unity Catalog Volume, register it with MLflow, and start a serving endpoint.
+
+MLflow simplifies model deployment on Databricks by managing registration and serving processes seamlessly.
+
+---
+
+### 23. A Generative AI Engineer is tasked with chunking and indexing legal texts for a RAG application. The legal texts contain lengthy sections, some exceeding token limits. What is the best chunking strategy?
+
+- ✅ **Split the text into logical sections based on headings and subheadings, ensuring chunks remain under token limits.**
+- Process each document as a single chunk.
+- Overlap all chunks by 30% to ensure context preservation.
+- Split the text into equal-sized chunks without considering structure.
+
+Logical chunking ensures meaningful content is preserved while adhering to token limits, optimizing retrieval quality.
+
+---
+
+### 24. A Generative AI Engineer is creating an application requiring up-to-date news articles and stock prices. How should they architect the system?
+
+- Download and store news articles and stock prices in a vector store. Use a RAG architecture to retrieve and generate responses at runtime.
+- ✅ **Create an agent with tools for SQL querying of Delta tables and web searching. Provide retrieved values to the LLM for response generation.**
+- Use an LLM to summarize news articles and lookup stock tickers to find stock prices.
+- Query the Delta table for stock prices and use an LLM to generate search queries for stock volatility analysis.
+
+An agent-based architecture combining SQL queries and web search ensures real-time integration of stock prices and news for comprehensive responses.
+
+---
+
+### 25. A Generative AI Engineer is building a RAG application that will rely on context retrieved from source documents that are currently in PDF format. These PDFs can contain both text and images. They want to develop a solution using the least amount of lines of code. Which Python package should be used to extract the text from the source documents?
+
+- flask
+- ✅ **unstructured**
+- beautifulsoup
+- numpy
+
+The unstructured library is designed to efficiently extract text and other structured data from PDFs with minimal code.
+
+---
+
+### 26. A Generative AI Engineer is tasked with developing an application that is based on an open-source large language model (LLM). They need a foundation LLM with a large context window. Which model fits this need?
+
+- Llama2-70B
+- DBRX
+- ✅ **MPT-30B**
+- DistilBERT
+
+MPT-30B is an open-source model optimized for applications requiring a large context window, making it the best choice for this requirement.
+
+---
+
+### 27. A Generative AI Engineer is tasked with augmenting user inputs for a chatbot that generates meal plans. The system must use user-provided ingredients and dietary restrictions to recommend meals. How should the input be augmented? (Choose two)
+
+- ✅ **Include additional context, such as portion sizes and meal preferences, in the prompt.**
+- Train a rule-based system for fixed meal plan recommendations.
+- ✅ **Add examples of similar meal plans in the prompt.**
+- Use a classification model to categorize user inputs.
+- Summarize user inputs to condense key points.
+
+Contextual prompts and examples ensure the chatbot generates personalized and accurate meal plans based on user inputs.
+
+---
+
+### 28. A Generative AI Engineer is tasked with developing a RAG application for a small internal group of experts at their company. The application must answer sensitive and confidential questions using an internal knowledge base. High-quality answers are a priority, while latency and throughput are not concerns due to the small user group. Regulatory requirements prohibit transmitting any information to third parties. Which model meets all the requirements?
+
+- ✅ **Llama2-70B**
+- BGE-large
+- OpenAI GPT-4
+- Dolly 1.5B
+
+Llama2-70B is the best choice for this scenario, meeting the requirements of high-quality answers, data confidentiality, and regulatory compliance. It is open-source, deployable internally, and suited for expert-level applications.
+
+---
+
+### 29. A Generative AI Engineer is tasked with developing a preprocessing pipeline for a custom LLM application that normalizes user queries and removes unnecessary symbols. Which approach should they use?
+
+- ✅ **Write a PyFunc model to implement the preprocessing logic and integrate it with the LLM application.**
+- Use a Delta Live Table to preprocess user queries before passing them to the LLM.
+- Use a Spark job to normalize and preprocess user queries.
+- Fine-tune the LLM to preprocess the user queries internally.
+
+PyFunc is an MLflow feature that enables custom preprocessing or postprocessing logic to be easily integrated with machine learning workflows. It is efficient, reusable, and ideal for query normalization tasks.
+
+---
+
+### 30. A Generative AI Engineer is tasked with enhancing a RAG application that uses customer transaction data stored in Delta tables in the production environment. The team needs to test changes in the development environment using realistic data without compromising security or affecting production performance. What is the best approach in Databricks?
+
+- Point the development environment directly to the production Delta table for real-time testing.
+- Copy the entire Delta table into the development environment without any modifications.
+- ✅ **Use Databricks’ Unity Catalog to create a development-specific view of the production data with access controls and data masking for sensitive fields.**
+- Use a synthetic dataset generated within Databricks that mimics the schema and general characteristics of production data.
+- Use Databricks’ Delta Sharing to provide limited query access to the production Delta table from the development environment.
+
+Using Unity Catalog to create a masked view of production data ensures the development environment is safe, secure, and compliant while providing realistic data for testing.
+
+---
+
+### 31. A Generative AI Engineer must evaluate the suitability of a model for summarizing academic research papers. The evaluation should consider semantic accuracy and domain relevance. What methods should they prioritize? (Choose two)
+
+- ✅ **Perform human evaluation to assess the summaries for domain correctness.**
+- Evaluate token usage to optimize cost.
+- Use BLEU to measure similarity with reference texts.
+- Measure perplexity to evaluate fluency.
+- ✅ **Use ROUGE for content overlap and domain-specific metrics for semantic accuracy.**
+
+Combining ROUGE with human evaluation ensures accurate and relevant summaries tailored to academic research.
+
+---
+
+### 32. A Generative AI Engineer is building a RAG application that answers questions about internal documents for SnoPen AI. The source documents may contain irrelevant content, such as ads or non-company-specific information. Which approach is advisable to filter irrelevant information?
+
+- Consolidate all SnoPen AI-related documents into a single chunk in the vector database.
+- ✅ **Include in the system prompt that the application is not supposed to answer any questions unrelated to SnoPen AI.**
+- Keep all articles because the RAG application needs to understand non-company content to avoid answering questions about them.
+- Include in the system prompt that any information it sees will be about SnoPen AI, even if no data filtering is performed.
+
+Including constraints in the system prompt ensures the application focuses solely on SnoPen AI-related questions.
+
+---
+
+### 33. A Generative AI Engineer is using the code below to test setting up a vector store: from databricks.vector_search.client import VectorSearchClient vsc = VectorSearchClient() vsc.create_endpoint( name=“vector_search_test“, endpoint_type=“STANDARD“ ) Assuming they intend to use Databricks-managed embeddings with the default embedding model, what should be the next logical function call?
+
+- vsc.similarity_search()
+- vsc.create_direct_access_index()
+- ✅ **vsc.create_delta_sync_index()**
+- vsc.get_index()
+
+Creating a Delta-synced index allows seamless embedding synchronization with Delta tables, aligning with Databricks-managed workflows and default embedding configurations.
+
+---
+
+### 34. A Generative AI Engineer is creating an agent-based LLM system for their favorite monster truck team. The system can answer text-based questions about the team, look up event dates via an API call, or query tables on the team’s latest standings. How could the Generative AI Engineer best design these capabilities into their system?
+
+- Instruct the LLM to respond with “RAG,” “API,” or “TABLE” depending on the query, then use text parsing and conditional statements to resolve the query.
+- Build a system prompt with all possible event dates and table information in the system prompt. Use a RAG architecture to lookup generic text questions and otherwise leverage the information in the system prompt.
+- ✅ **Write a system prompt for the agent listing available tools and bundle it into an agent system that runs a number of calls to solve a query.**
+- Ingest PDF documents about the monster truck team into a vector store and query it in a RAG architecture.
+
+Using an agent with tools for handling text queries, API lookups, and table queries ensures flexibility and scalability for diverse system requirements.
+
+---
+
+### 35. A Generative AI Engineer deployed an application but found that request volume is insufficient for provisioned throughput. How can they ensure cost-effectiveness for deployment?
+
+- Switch to using External Models instead.
+- Throttle incoming request batches manually to avoid rate-limiting issues.
+- ✅ **Deploy the model using pay-per-token throughput as it comes with cost guarantees.**
+- Change to a model with fewer parameters to reduce hardware constraints.
+
+Pay-per-token throughput ensures that costs align with usage, making it the best strategy for low request volumes.
+
+---
+
+### 36. A Generative AI Engineer is testing a simple prompt template in LangChain using the code below but is getting an error: from langchain.chains import LLMChain from langchain_community.llms import OpenAI from langchain_core.prompts import PromptTemplate prompt_template = “Tell me a {adjective} joke“ prompt = PromptTemplate( input_variables=[“adjective“], template=prompt_template ) llm = LLMChain(prompt=prompt) llm.generate([{“adjective“: “funny“}]) Assuming the API key was properly defined, what change does the Generative AI Engineer need to make to fix their chain?
+
+- prompt_template = “Tell me a {adjective} joke“ prompt = PromptTemplate( input_variables=[“adjective“], template=prompt_template ) llm = LLMChain(prompt=prompt.format(“funny“)) llm.generate()
+- ✅ **prompt_template = “Tell me a {adjective} joke“ prompt = PromptTemplate( input_variables=[“adjective“], template=prompt_template ) llm = LLMChain(llm=OpenAI(), prompt=prompt) llm.generate([{“adjective“: “funny“}])**
+- prompt_template = “Tell me a {adjective} joke“ prompt = PromptTemplate( input_variables=[“adjective“], template=prompt_template, llm=OpenAI() ) llm = LLMChain(prompt=prompt) llm.generate([{“adjective“: “funny“}])
+- prompt_template = “Tell me a {adjective} joke“ prompt = PromptTemplate( input_variables=[“adjective“], template=prompt_template ) llm = LLMChain(prompt=prompt) llm.generate(“funny“)
+
+The error occurs because the LLMChain is not properly connected to an LLM instance, such as OpenAI(). In LangChain, the PromptTemplate defines the structure of the prompt and its input variables, while the LLMChain links this template to the LLM to enable output generation. Without an LLM instance, the chain cannot process prompts or produce responses, leading to failure. The correct solution involves initializing the LLMChain with both the PromptTemplate and the LLM. Other approaches fail because they either omit the required LLM connection, misplace components, or misuse the prompt formatting, which does not address the root issue.
+
+---
+
+### 37. A small and cost-conscious startup in cancer research wants to build a RAG application using Foundation Model APIs. How can they build a quality application while remaining cost-efficient?
+
+- Limit the number of queries a customer can send per day.
+- Use the largest LLM for best performance.
+- Limit the number of relevant documents available for retrieval.
+- ✅ **Pick a smaller LLM that is domain-specific.**
+
+Smaller, domain-specific LLMs strike a balance between quality and cost, catering to the startup’s specific needs.
+
+---
+
+### 38. A Generative AI Engineer has successfully chunked unstructured documents and wants to store the chunks in a Vector Search index. The current dataframe has columns for the original document name and an array of text chunks. What is the most performant way to store this dataframe?
+
+- First create a unique identifier for each document, then save to a Delta table.
+- ✅ **Flatten the dataframe to one chunk per row, create a unique identifier for each row, and save to a Delta table.**
+- Split the data into train and test sets, create a unique identifier for each document, then save to a Delta table.
+- Store each chunk as an independent JSON file in Unity Catalog Volume.
+
+Flattening the dataframe to store individual chunks with unique identifiers optimizes retrieval in a Vector Search index.
+
+---
+
+### 39. A team wants to serve a code generation model as an assistant for their software developers. It should support multiple programming languages. Quality is the primary objective. Which of the Databricks Foundation Model APIs, or models available in the Marketplace, would be the best fit?
+
+- BGE-large
+- ✅ **CodeLlama-34B**
+- MPT-7b
+- Llama2-70b
+
+CodeLlama-34B is a specialized code generation model that supports multiple programming languages, making it the best choice for the team‘s requirements.
+
+---
+
+### 40. A Generative AI Engineer is developing a fraud detection system for an e-commerce platform. The system uses an LLM to flag suspicious transactions based on textual descriptions, customer history, and transaction metadata. The engineer wants to track multiple model experiments, record performance metrics, and ensure the selected model can be easily deployed for production. Which approach should they use?
+
+- Write custom Python scripts to store experiment logs in a local file system and deploy the model using Flask.
+- Use a cloud-based document management system to track experiments and deployment steps.
+- Use TensorFlow’s built-in logging and deployment tools.
+- ✅ **Use MLflow to log model experiments, track performance metrics, and streamline deployment to production.**
+- Use a spreadsheet to manually record experiment results and maintain a log of model configurations.
+
+MLflow provides a complete solution for tracking experiments, logging performance metrics, and deploying the selected model, making it ideal for building and deploying machine learning systems efficiently.
+
+---
+
+### 41. A Generative AI Engineer is designing an LLM-powered live sports commentary platform that provides real-time updates and analyses. This platform aims to generate summaries based on live game scores, rather than relying on potentially outdated articles. Which tool will enable access to real-time data for generating these game analyses?
+
+- Foundation Model APIs
+- ✅ **Feature Serving**
+- DatabricksIQ
+- AutoML
+
+Feature Serving is the ideal tool for accessing real-time data, ensuring the platform provides up-to-date analyses for users.
+
+---
+
+### 42. A Generative AI Engineer created a RAG application for employees to retrieve answers from an internal knowledge base. Now they want to formally evaluate the system’s performance. How should they evaluate the system?
+
+- Use an LLM-as-a-judge to evaluate the quality of the final answers generated.
+- ✅ **Curate a dataset to test retrieval and generation separately. Use MLflow’s built-in evaluation metrics for evaluation.**
+- Use cosine similarity score to comprehensively evaluate the quality of the final generated answers.
+- Benchmark multiple LLMs with the same data and pick the best LLM for the job.
+
+Separately evaluating retrieval and generation with curated datasets and MLflow metrics provides a systematic approach to improving performance.
+
+---
+
+### 43. A Generative AI Engineer is tasked with designing a reasoning system that evaluates legal contracts for potential risks. The system must highlight risky clauses, propose alternative language, and summarize key terms. What tools should be included? (Choose two)
+
+- ✅ **A retrieval system to fetch legal precedents or alternative clause templates.**
+- A classification model to categorize clauses by risk level.
+- A decision tree to guide users through contract sections.
+- ✅ **An embedding model to semantically analyze contract clauses.**
+- A visualization tool to highlight risky clauses interactively.
+
+Embeddings and retrieval systems enable dynamic risk evaluation, clause suggestions, and contract summarization effectively.
+
+---
+
+### 44. A Generative AI Engineer is monitoring a deployed RAG system that shows a decline in user satisfaction due to irrelevant outputs. The retrieval system has high latency. What metrics should the engineer focus on to diagnose and resolve the issue?
+
+- Perplexity and BLEU to evaluate output fluency and accuracy.
+- ✅ **Precision, recall, and retrieval latency to measure relevance and identify bottlenecks.**
+- User query frequency to identify demand patterns.
+- Token usage and response length to optimize costs.
+
+Precision, recall, and latency provide critical insights into relevance and retrieval efficiency, helping resolve issues with irrelevant outputs.
+
+---
+
+### 45. After changing the response-generating LLM in a RAG pipeline from GPT-4 to a model with a shorter context length that the company self-hosts, the Generative AI Engineer is getting the following error: {“error_code”: “BAD_REQUEST”, “message”: “Bad request: rpc error: code = InvalidArgument desc = prompt token count (4595) cannot exceed 4096…”} What TWO solutions should the Generative AI Engineer implement without changing the response-generating model? (Choose two.)
+
+- ✅ **Decrease the chunk size of embedded documents**
+- Use a smaller embedding model to generate embeddings
+- Reduce the maximum output tokens of the new model
+- ✅ **Reduce the number of records retrieved from the vector database**
+- Retrain the response-generating model using ALiBi
+
+By decreasing the chunk size of embedded documents and reducing the number of retrieved records, the engineer can ensure the total token count remains within the model‘s context length without requiring significant changes to the system.
+
+---
+
+### 46. A Generative AI Engineer must prevent hallucinations in an LLM’s responses to medical queries. What is the most effective technique?
+
+- Use shorter prompts to limit response complexity.
+- Lower the temperature setting during inference.
+- ✅ **Ground the LLM’s responses using a retrieval-augmented generation (RAG) pipeline connected to verified medical sources.**
+- Train the model on diverse datasets.
+
+A RAG pipeline grounds responses in factual data, ensuring outputs are accurate and reducing hallucinations in critical domains like medicine.
+
+---
+
+### 47. A Generative AI Engineer must design a pipeline for generating personalized travel itineraries. The system must incorporate budget constraints, user preferences, and destination details. What components are critical? (Choose two)
+
+- Use a rule-based system to match users with predefined itineraries.
+- ✅ **Use a summarization model to condense user inputs into key points.**
+- Use a classification model to categorize destinations by type.
+- ✅ **Use an embedding model to represent destinations and preferences semantically.**
+- Use an LLM to generate detailed itineraries dynamically.
+
+Combining embeddings and LLMs ensures dynamic, contextually accurate travel itineraries tailored to user needs.
+
+---
+
+### 48. A Generative AI Engineer is building a conversational agent for a banking application. The agent must handle sensitive information securely. What is the best approach to ensure data security?
+
+- Use summarization models to reduce data volume.
+- Lower the temperature to limit variability in responses.
+- Train the LLM on datasets with anonymized data.
+- ✅ **Implement encryption for sensitive data and use LLM guardrails to avoid leakage.**
+
+Encryption combined with LLM guardrails provides robust security for handling sensitive data in banking applications.
+
+---
+
+### 49. A Generative AI Engineer is tasked with designing an AI pipeline for translating unstructured user feedback into actionable tasks. The pipeline must highlight priorities and deadlines from the feedback. What is the best approach?
+
+- Use a summarization model to condense feedback.
+- ✅ **Use an LLM to analyze user feedback and generate structured outputs with priorities and deadlines.**
+- Use a classification model to categorize feedback.
+- Use a rule-based system to extract keywords.
+
+LLMs dynamically translate unstructured feedback into structured, actionable outputs, meeting business requirements.
+
+---
+
+### 50. A Generative AI Engineer needs to extract text from scanned invoices in JPG format for a financial application. Which Python package is best suited for this task?
+
+- PyPDF2 for extracting text from images.
+- BeautifulSoup for parsing text.
+- ✅ **Tesseract OCR via the pytesseract package.**
+- pdfplumber to parse the images.
+
+pytesseract enables robust OCR for extracting text from image files like JPGs, making it ideal for this task.
+
+---
+
+### 51. A Generative AI Engineer is selecting a model for generating summaries of financial reports. The reports often contain tables with numerical data. What should they prioritize?
+
+- Focus on the model with the largest context length.
+- ✅ **Choose a model optimized for numerical reasoning and summarization tasks.**
+- Use a generative model trained on open-domain text.
+- Select the cheapest available model.
+
+Models optimized for numerical reasoning ensure accurate and meaningful summaries of data-rich financial reports.
+
+---
+
+### 52. A Generative AI Engineer is designing a chain using LangChain to answer user questions about technical specifications of electronic devices. The chain must handle multi-turn conversations and fetch detailed responses. What elements should the chain include? (Choose two)
+
+- A rule-based system to provide fixed answers for repetitive queries.
+- A summarization model to shorten long responses.
+- ✅ **A retriever to fetch device specifications from a vector store.**
+- ✅ **A prompt template that maintains conversation history for context.**
+- A sentiment analysis model to detect user satisfaction.
+
+Prompt templates and retrievers ensure the LangChain application provides context-aware and detailed responses for technical queries.
+
+---
+
+### 53. Which temperature value setting encourages a large language model to generate creative and varied responses?
+
+- Lower the temperature to a value close to 0.
+- Set the temperature to exactly 0.5.
+- Disable temperature controls for unconstrained outputs.
+- ✅ **Increase the temperature to a higher value, like 1.0 or above.**
+
+Increasing the temperature encourages randomness, enabling the model to generate varied, creative responses ideal for brainstorming or storytelling tasks.
+
+---
+
+### 54. A Generative AI Engineer must create a LangChain chain for generating personalized responses to user queries. The chain must include context from a vector store and generate coherent answers. What components should the chain include? (Choose two)
+
+- ✅ **A prompt template to structure user queries for the LLM.**
+- A rule-based system to hardcode responses.
+- ✅ **A retriever for fetching relevant context from the vector store.**
+- A summarization model for condensing user inputs.
+- A classification model to label user intents.
+
+Combining retrievers and prompt templates ensures dynamic and contextually relevant response generation using LangChain.
+
+---
+
+### 55. A Generative AI Engineer must build a pipeline that converts unstructured legal documents into structured summaries. The summaries should highlight key clauses, risks, and obligations. Which tools should be included in the pipeline?
+
+- ✅ **An LLM fine-tuned on legal text for generating structured summaries.**
+- A rule-based system for extracting clauses.
+- A summarization model trained on general text.
+- A retrieval system for fetching similar legal cases.
+
+Fine-tuned LLMs on legal data ensure the system generates structured summaries tailored to domain-specific requirements.
+
+---
+
+### 56. A Generative AI Engineer must register a deployed model to Unity Catalog using MLflow. What is the correct workflow?
+
+- ✅ **Train the model, log it to MLflow, configure metadata, and register it to Unity Catalog.**
+- Log the model to MLflow but skip registering it to Unity Catalog.
+- Skip configuring metadata during registration.
+- Deploy the model directly to Unity Catalog without logging it to MLflow.
+
+MLflow provides seamless logging and metadata configuration, while Unity Catalog ensures model discoverability and governance.
+
+---
+
+### 57. A Generative AI Engineer must deploy a secure endpoint for a RAG application. The endpoint handles sensitive legal documents and must be compliant with data privacy regulations. What measures are essential? (Choose two)
+
+- ✅ **Encrypt data at rest and in transit to protect sensitive information.**
+- Rely on a shared access key for all users.
+- ✅ **Implement API key-based authentication for endpoint access.**
+- Skip authentication to allow unrestricted access.
+- Use public-facing endpoints without encryption to simplify access.
+
+Encryption and API key authentication are critical measures for secure and compliant endpoint deployment.
