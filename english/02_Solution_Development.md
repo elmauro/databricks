@@ -183,7 +183,6 @@ Return the analysis in this format:
   "sentiment": "..."
 }
 ```
-```
 
 #### 2. Specify Output Format
 
