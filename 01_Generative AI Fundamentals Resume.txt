@@ -46,7 +46,7 @@ Databricks
 		
 			Entorno visual y sin código para hacer prototipos de prompts, probar modelos LLM y experimentar con Agentes o cadenas RAG
 			
-			Se pueden ajustar parámetros (temperatura) y guardar prompts para exportar a MLFlow a aplicaciones RAG
+			Se pueden ajustar parámetros (temperatura) y guardar prompts para exportar a MLFlow y a aplicaciones RAG
 
 DBRX
 	LLM Open Source Empresarial (Mixture of Experts)
@@ -93,10 +93,13 @@ Databricks Data Inteligence Platform
 			Metricas
 				Faithfulness	¿Respuesta fiel al contexto?		Evita alucinaciones
 				Relevance		¿Respuesta útil/precisa?			"Responde lo preguntado"
+				Correctness		¿La respuesta es correcta?			"Requiere Ground Truth"
 				Latency			Tiempo de respuesta					< 2 segundos para chatbot
 				Cost			Costo por token						$0.003/query
 				ROUGE/BLEU		Métricas lingüísticas				Resumen o traducción
 				Perplexity		Confianza del modelo				Menor = mejor
+
+				Factual			Hechos reales
 				
 		MLFlow
 			Plataforma para gestión completa del ciclo de vida de modelos
@@ -111,7 +114,7 @@ Databricks Data Inteligence Platform
 			
 		
 		AI Playground		
-			Enrono visual y sin código para hacer prototipos de prompts, probar modelos LLM y experimentar con Agentes o cadenas RAG
+			Entorno visual y sin código para hacer prototipos de prompts, probar modelos LLM y experimentar con Agentes o cadenas RAG
 			
 			Se pueden ajustar parámetros (temperatura) y guardar prompts para exportar a MLFlow a aplicaciones RAG
 		
