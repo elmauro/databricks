@@ -1,0 +1,6 @@
+# Ignore text and PDF files
+*.txt
+*.pdf
+
+# Ignore sources folder
+sources/
